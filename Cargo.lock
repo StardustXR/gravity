@@ -384,20 +384,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "gravity"
-version = "0.1.0"
-dependencies = [
- "clap",
- "glam",
- "lazy_static",
- "mint",
- "nix",
- "stardust-xr-fusion",
- "tokio",
- "ustr",
-]
-
-[[package]]
 name = "half"
 version = "1.8.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -886,7 +872,9 @@ dependencies = [
 
 [[package]]
 name = "stardust-xr"
-version = "0.1.0"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2c420007bd1f45c38c1e2356d6c8c7ef195d6ebb8455818e30593ea4586a146d"
 dependencies = [
  "anyhow",
  "chrono",
@@ -905,7 +893,9 @@ dependencies = [
 
 [[package]]
 name = "stardust-xr-fusion"
-version = "0.9.0"
+version = "0.10.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "544b64e07bd269fab973fe20a79b6bdf414eadf2095bce3dc688c34980949df5"
 dependencies = [
  "anyhow",
  "buildstructor",
@@ -935,8 +925,23 @@ dependencies = [
 ]
 
 [[package]]
+name = "stardust-xr-gravity"
+version = "0.1.0"
+dependencies = [
+ "clap",
+ "glam",
+ "mint",
+ "nix",
+ "stardust-xr-fusion",
+ "tokio",
+ "ustr",
+]
+
+[[package]]
 name = "stardust-xr-schemas"
 version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ed5c88c0ea1c307c0e93d799abb94c1db13a211b41101a4f7d648dd215fe8158"
 dependencies = [
  "flatbuffers",
  "mint",
