@@ -5,6 +5,7 @@ edition = "2021"
 description = "Utility to launch apps and stardust clients spatially"
 authors = ["Nova King <technobaboo@proton.me>"]
 license = "MIT"
+repository = "https://github.com/StardustXR/gravity"
 
 [[bin]]
 name = "gravity"
