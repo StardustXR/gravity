@@ -1,0 +1,20 @@
+[package]
+name = "gravity"
+version = "0.1.0"
+edition = "2021"
+description = "Utility to launch apps and stardust clients spatially"
+authors = ["Nova King <technobaboo@proton.me>"]
+license = "MIT"
+
+[dependencies]
+tokio = { version = "1.21.1", features = ["full"] }
+lazy_static = "1.4.0"
+glam = { version = "0.21.3", features = ["mint"] }
+mint = "0.5.9"
+clap = { version = "3.2.22", features = ["derive"] }
+nix = { version = "0.25.0", default-features = false, features = ["process", "env"] }
+ustr = "0.9.0"
+
+[dependencies.stardust-xr-fusion]
+version = "0.9.0"
+path = "../../stardust-xr/fusion"
