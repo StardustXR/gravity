@@ -24,7 +24,7 @@ async fn main() {
 		.expect("Unable to connect to server");
 	let spatial = Spatial::builder()
 		.position(Vector3::from([args.x, args.y, args.z]))
-		.and_rotation(args.yaw.map(|yaw| Quat::from_rotation_y(yaw)))
+		.and_rotation(args.yaw.map(|yaw| Quat::from_rotation_y(yaw.to_radians())))
 		.spatial_parent(client.get_root())
 		.zoneable(false)
 		.build()
