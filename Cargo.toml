@@ -1,6 +1,6 @@
 [package]
 name = "stardust-xr-gravity"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "Utility to launch apps and stardust clients spatially"
 authors = ["Nova King <technobaboo@proton.me>"]
@@ -18,4 +18,4 @@ mint = "0.5.9"
 clap = { version = "3.2.22", features = ["derive"] }
 nix = { version = "0.25.0", default-features = false, features = ["process"] }
 ustr = "0.9.0"
-stardust-xr-fusion = "0.10.0"
+stardust-xr-fusion = "0.14.1"

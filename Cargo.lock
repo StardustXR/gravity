@@ -872,9 +872,9 @@ dependencies = [
 
 [[package]]
 name = "stardust-xr"
-version = "0.2.0"
+version = "0.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2c420007bd1f45c38c1e2356d6c8c7ef195d6ebb8455818e30593ea4586a146d"
+checksum = "2170ee26edf0a71e8baebe600cd08614fee4d84c2c183d541fad3e14a8f14e49"
 dependencies = [
  "anyhow",
  "chrono",
@@ -893,9 +893,9 @@ dependencies = [
 
 [[package]]
 name = "stardust-xr-fusion"
-version = "0.10.0"
+version = "0.14.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "544b64e07bd269fab973fe20a79b6bdf414eadf2095bce3dc688c34980949df5"
+checksum = "ef2a8f731e9b78c2e7800e83b60f7dbe72c7aad01dec6da6350d7b0a51734d87"
 dependencies = [
  "anyhow",
  "buildstructor",
@@ -926,7 +926,7 @@ dependencies = [
 
 [[package]]
 name = "stardust-xr-gravity"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "clap",
  "glam",
