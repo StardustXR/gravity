@@ -32,12 +32,12 @@ async fn main() {
 	let startup_settings =
 		StartupSettings::create(&client).expect("Unable to create startup settings");
 	startup_settings.set_root(&spatial).unwrap();
-	let desktop_startup_id = startup_settings
-		.generate_desktop_startup_id()
-		.expect("Unable to get desktop startup ID from startup settings")
+	let startup_token = startup_settings
+		.generate_startup_token()
+		.expect("Unable to get startup token from startup settings")
 		.await
-		.expect("Server could not generate desktop startup ID");
-	std::env::set_var("DESKTOP_STARTUP_ID", desktop_startup_id);
+		.expect("Server could not generate startup token");
+	std::env::set_var("STARDUST_STARTUP_TOKEN", startup_token);
 	let (program, args) = args.command.split_first().unwrap();
 	let args: Vec<CString> = args
 		.into_iter()
