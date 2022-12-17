@@ -1,7 +1,9 @@
 use clap::Parser;
 use glam::Quat;
 use mint::Vector3;
-use stardust_xr_fusion::{client::Client, spatial::Spatial, startup_settings::StartupSettings};
+use stardust_xr_fusion::{
+	client::Client, core::values::Transform, spatial::Spatial, startup_settings::StartupSettings,
+};
 use std::ffi::CString;
 use ustr::ustr;
 
@@ -22,13 +24,16 @@ async fn main() {
 	let (client, _event_loop) = Client::connect_with_async_loop()
 		.await
 		.expect("Unable to connect to server");
-	let spatial = Spatial::builder()
-		.position(Vector3::from([args.x, args.y, args.z]))
-		.and_rotation(args.yaw.map(|yaw| Quat::from_rotation_y(yaw.to_radians())))
-		.spatial_parent(client.get_root())
-		.zoneable(false)
-		.build()
-		.unwrap();
+	let spatial = Spatial::create(
+		client.get_root(),
+		Transform {
+			position: Vector3::from([args.x, args.y, args.z]),
+			rotation: Quat::from_rotation_y(args.yaw.unwrap_or_default().to_radians()).into(),
+			..Default::default()
+		},
+		false,
+	)
+	.unwrap();
 	let startup_settings =
 		StartupSettings::create(&client).expect("Unable to create startup settings");
 	startup_settings.set_root(&spatial).unwrap();
