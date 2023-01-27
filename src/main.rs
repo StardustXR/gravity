@@ -1,6 +1,5 @@
 use clap::Parser;
 use glam::Quat;
-use mint::Vector3;
 use stardust_xr_fusion::{
 	client::Client, core::values::Transform, spatial::Spatial, startup_settings::StartupSettings,
 };
@@ -26,11 +25,10 @@ async fn main() {
 		.expect("Unable to connect to server");
 	let spatial = Spatial::create(
 		client.get_root(),
-		Transform {
-			position: Vector3::from([args.x, args.y, args.z]),
-			rotation: Quat::from_rotation_y(args.yaw.unwrap_or_default().to_radians()).into(),
-			..Default::default()
-		},
+		Transform::from_position_rotation(
+			[args.x, args.y, args.z],
+			Quat::from_rotation_y(args.yaw.unwrap_or_default().to_radians()),
+		),
 		false,
 	)
 	.unwrap();
