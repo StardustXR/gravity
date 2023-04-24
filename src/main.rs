@@ -32,6 +32,17 @@ async fn main() {
 		false,
 	)
 	.unwrap();
+
+	let env = client
+		.get_connection_environment()
+		.expect("Unable to get the environment needed to connect to stardust")
+		.await
+		.expect("Server could not get the environment needed to connect to stardust");
+	for (k, v) in env.into_iter() {
+		println!("Setting connection env var {k} to {v}");
+		std::env::set_var(k, v);
+	}
+
 	let startup_settings =
 		StartupSettings::create(&client).expect("Unable to create startup settings");
 	startup_settings.set_root(&spatial).unwrap();
