@@ -17,7 +17,4 @@ glam = { version = "0.24.0", features = ["mint"] }
 clap = { version = "4.2.4", features = ["derive"] }
 nix = { version = "0.26.2", default-features = false, features = ["process"] }
 ustr = "0.9.0"
-stardust-xr-fusion = "0.39.0"
-
-[patch.crates-io]
-stardust-xr-fusion = { path = "../../core/fusion" }
+stardust-xr-fusion = "0.39.1"
