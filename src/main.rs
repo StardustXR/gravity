@@ -1,7 +1,9 @@
 use clap::Parser;
 use glam::Quat;
 use stardust_xr_fusion::{
-	client::Client, core::values::Transform, spatial::Spatial, startup_settings::StartupSettings,
+	client::{Client, ClientState},
+	core::values::Transform,
+	spatial::Spatial,
 };
 use std::ffi::CString;
 use ustr::ustr;
@@ -43,11 +45,12 @@ async fn main() {
 		std::env::set_var(k, v);
 	}
 
-	let startup_settings =
-		StartupSettings::create(&client).expect("Unable to create startup settings");
-	startup_settings.set_root(&spatial).unwrap();
-	let startup_token = startup_settings
-		.generate_startup_token()
+	let startup_token = client
+		.state_token(&ClientState {
+			data: None,
+			root: Some(spatial),
+			spatial_anchors: Default::default(),
+		})
 		.expect("Unable to get startup token from startup settings")
 		.await
 		.expect("Server could not generate startup token");
