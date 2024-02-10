@@ -2,8 +2,7 @@ use clap::Parser;
 use glam::Quat;
 use stardust_xr_fusion::{
 	client::{Client, ClientState},
-	core::values::Transform,
-	spatial::Spatial,
+	spatial::{Spatial, Transform},
 };
 use std::ffi::CString;
 use ustr::ustr;
@@ -27,7 +26,7 @@ async fn main() {
 		.expect("Unable to connect to server");
 	let spatial = Spatial::create(
 		client.get_root(),
-		Transform::from_position_rotation(
+		Transform::from_translation_rotation(
 			[args.x, args.y, args.z],
 			Quat::from_rotation_y(args.yaw.unwrap_or_default().to_radians()),
 		),
@@ -51,7 +50,6 @@ async fn main() {
 			root: Some(spatial),
 			spatial_anchors: Default::default(),
 		})
-		.expect("Unable to get startup token from startup settings")
 		.await
 		.expect("Server could not generate startup token");
 	std::env::set_var("STARDUST_STARTUP_TOKEN", startup_token);
