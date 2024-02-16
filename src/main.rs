@@ -10,8 +10,11 @@ use ustr::ustr;
 #[derive(Debug, Parser)]
 #[clap(author, version, about, long_about = None)]
 struct Args {
+	#[arg(allow_negative_numbers(true))]
 	x: f32,
+	#[arg(allow_negative_numbers(true))]
 	y: f32,
+	#[arg(allow_negative_numbers(true))]
 	z: f32,
 	#[clap(short = 'r')]
 	yaw: Option<f32>,
