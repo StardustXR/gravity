@@ -1,7 +1,8 @@
 use clap::Parser;
 use glam::Quat;
 use stardust_xr_fusion::{
-	client::{Client, ClientState},
+	client::Client,
+	root::{ClientState, RootAspect},
 	spatial::{Spatial, Transform},
 };
 use std::ffi::CString;
@@ -38,8 +39,8 @@ async fn main() {
 	.unwrap();
 
 	let env = client
+		.get_root()
 		.get_connection_environment()
-		.expect("Unable to get the environment needed to connect to stardust")
 		.await
 		.expect("Server could not get the environment needed to connect to stardust");
 	for (k, v) in env.into_iter() {
@@ -48,11 +49,8 @@ async fn main() {
 	}
 
 	let startup_token = client
-		.state_token(&ClientState {
-			data: None,
-			root: Some(spatial),
-			spatial_anchors: Default::default(),
-		})
+		.get_root()
+		.generate_state_token(ClientState::from_root(&spatial).unwrap())
 		.await
 		.expect("Server could not generate startup token");
 	std::env::set_var("STARDUST_STARTUP_TOKEN", startup_token);
