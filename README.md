@@ -1,5 +1,5 @@
 # Gravity
-Utility to launch apps and stardust clients spatially
+Utility to launch apps and Stardust XR clients spatially
 
 ## Example
 `$ gravity 0 0.5 0 -r 120 spatial` 
