@@ -25,7 +25,7 @@ struct Args {
 #[tokio::main(flavor = "current_thread")]
 async fn main() {
 	let args = dbg!(Args::parse());
-	let mut client = Client::connect()
+	let client = Client::connect()
 		.await
 		.expect("Unable to connect to server");
 	let spatial = Spatial::create(
@@ -39,25 +39,22 @@ async fn main() {
 	.unwrap();
 
 	let client_handle = client.handle();
+	let _async_loop = client.async_event_loop();
 
-	let env = client
-		.with_event_loop(client_handle.get_root().get_connection_environment())
+	let env = client_handle
+		.get_root()
+		.get_connection_environment()
 		.await
-		.unwrap()
 		.expect("Server could not get the environment needed to connect to stardust");
 	for (k, v) in env.into_iter() {
 		println!("Setting connection env var {k} to {v}");
 		std::env::set_var(k, v);
 	}
 
-	let startup_token = client
-		.with_event_loop(
-			client_handle
-				.get_root()
-				.generate_state_token(ClientState::from_root(&spatial).unwrap()),
-		)
+	let startup_token = client_handle
+		.get_root()
+		.generate_state_token(ClientState::from_root(&spatial).unwrap())
 		.await
-		.unwrap()
 		.expect("Server could not generate startup token");
 	std::env::set_var("STARDUST_STARTUP_TOKEN", startup_token);
 	let (program, args) = args.command.split_first().unwrap();
