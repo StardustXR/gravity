@@ -57,8 +57,8 @@ async fn main() {
 		.await
 		.expect("Server could not generate startup token");
 	std::env::set_var("STARDUST_STARTUP_TOKEN", startup_token);
-	let (program, args) = args.command.split_first().unwrap();
-	let args: Vec<CString> = args
+	let (program, _) = args.command.split_first().unwrap();
+	let args: Vec<CString> = args.command
 		.iter()
 		.map(|arg| CString::new(arg.clone()).unwrap())
 		.collect();
