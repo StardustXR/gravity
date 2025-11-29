@@ -1,6 +1,6 @@
 [package]
 name = "stardust-xr-gravity"
-version = "0.4.1"
+version = "0.50.0"
 edition = "2021"
 description = "Utility to launch apps and stardust clients spatially"
 authors = ["Nova King <technobaboo@proton.me>"]
@@ -17,7 +17,8 @@ glam = { version = "0.28.0", features = ["mint"] }
 clap = { version = "4.5.7", features = ["derive"] }
 nix = { version = "0.29.0", default-features = false, features = ["process"] }
 ustr = "1.0.0"
+stardust-xr-fusion = "0.50.0"
 
-[dependencies.stardust-xr-fusion]
-git = "https://github.com/StardustXR/core.git"
-branch = "dev"
+# [dependencies.stardust-xr-fusion]
+# git = "https://github.com/StardustXR/core.git"
+# branch = "dev"
