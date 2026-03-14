@@ -35,7 +35,6 @@ async fn main() {
 			[args.x, args.y, args.z],
 			Quat::from_rotation_y(args.yaw.unwrap_or_default().to_radians()),
 		),
-		false,
 	)
 	.unwrap();
 
