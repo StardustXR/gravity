@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Gravity
+Comment=Launch 3D programs at an offset
+Type=Application
+Exec=gravity
+Terminal=false
+Categories=XR;Stardust;
+Keywords=XR;Stardust;
+Icon=org.stardustxr.Gravity
+StartupNotify=false
+NoDisplay=true
