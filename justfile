@@ -50,12 +50,12 @@ run *args:
 # Installs files
 install:
     install -Dm0755 {{ bin-src }} {{ bin-dst }}
-    @just data/install
+    # @just data/install
 
 # Uninstalls installed files
 uninstall:
     rm {{ bin-dst }}
-    @just data/uninstall
+    # @just data/uninstall
 
 # Vendor dependencies locally
 vendor:
