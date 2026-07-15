@@ -21,14 +21,13 @@ struct Args {
 	command: Vec<String>,
 }
 
-#[expect(unreachable_code)]
 #[tokio::main(flavor = "current_thread")]
 async fn main() {
 	let args = dbg!(Args::parse());
 	let (client, root) = Client::auto_connect(&[])
 		.await
 		.expect("Unable to connect to server");
-	let spatial = Spatial::new(
+	let (_, spatial_ref) = Spatial::new(
 		&client,
 		&root,
 		Transform::from_translation_rotation(
@@ -38,12 +37,12 @@ async fn main() {
 	)
 	.await
 	.unwrap();
-	let spatial_ref = spatial.spatial_ref().await.unwrap();
 
 	let startup_token = client
 		.server()
 		.generate_startup_token(spatial_ref)
 		.await
+		.unwrap()
 		.expect("Server could not generate startup token");
 	std::env::set_var("STARDUST_STARTUP_TOKEN", startup_token);
 	let (program, _) = args.command.split_first().unwrap();
