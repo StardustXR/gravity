@@ -21,4 +21,4 @@ ustr = "1.0.0"
 
 [dependencies.stardust-xr-fusion]
 git = "https://github.com/StardustXR/core.git"
-branch = "binder"
+branch = "refactor/strongipc"

@@ -24,7 +24,7 @@ struct Args {
 #[tokio::main(flavor = "current_thread")]
 async fn main() {
 	let args = dbg!(Args::parse());
-	let (client, root) = Client::auto_connect(&[])
+	let (client, root) = Client::connect(&[])
 		.await
 		.expect("Unable to connect to server");
 	let (_, spatial_ref) = Spatial::new(
