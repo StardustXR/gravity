@@ -330,20 +330,21 @@ dependencies = [
 
 [[package]]
 name = "glam"
-version = "0.30.10"
+version = "0.33.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "19fc433e8437a212d1b6f1e68c7824af3aed907da60afa994e7f542d18d12aa9"
+checksum = "37bfe73dc8ec21f54d181e5a60554327ec3f1c600c455a75ccbfc65d2106a6c4"
 dependencies = [
  "mint",
 ]
 
 [[package]]
-name = "gluon"
-version = "0.1.0"
-source = "git+https://github.com/technobaboo/gluon?branch=refactor%2Fstrongipc#b950c3bcf7b92d70c36647752d678018d0e6ef3d"
+name = "gluon-ipc"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9f678c9eb6a669631f143f944bd24720a06a263086b757135b3d4c4f10a1730e"
 dependencies = [
  "bitflags",
- "gluon-derive",
+ "gluon-ipc-derive",
  "rustix",
  "strong-ipc",
  "thiserror",
@@ -351,13 +352,14 @@ dependencies = [
 ]
 
 [[package]]
-name = "gluon-codegen"
-version = "0.1.0"
-source = "git+https://github.com/technobaboo/gluon?branch=refactor%2Fstrongipc#b950c3bcf7b92d70c36647752d678018d0e6ef3d"
+name = "gluon-ipc-codegen"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4ad349441f18dcf4d4fb487eef89e261c9a5f1d1e3166811a846dcf936a6076d"
 dependencies = [
  "convert_case",
- "gluon",
- "gluon-parser",
+ "gluon-ipc",
+ "gluon-ipc-parser",
  "prettyplease",
  "proc-macro2",
  "quote",
@@ -365,18 +367,20 @@ dependencies = [
 ]
 
 [[package]]
-name = "gluon-derive"
-version = "0.1.0"
-source = "git+https://github.com/technobaboo/gluon?branch=refactor%2Fstrongipc#b950c3bcf7b92d70c36647752d678018d0e6ef3d"
+name = "gluon-ipc-derive"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "74ed802cf2a46b8a9644dd4f6d3dc29dc8c01658e73b11b5955371105d6255d5"
 dependencies = [
  "quote",
  "syn 2.0.119",
 ]
 
 [[package]]
-name = "gluon-parser"
-version = "0.1.0"
-source = "git+https://github.com/technobaboo/gluon?branch=refactor%2Fstrongipc#b950c3bcf7b92d70c36647752d678018d0e6ef3d"
+name = "gluon-ipc-parser"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5a91d064e854bfd84a829b6d863cbae9173521e46d18ed42db23c3b6a01f2ae2"
 dependencies = [
  "ansi_term",
  "chumsky",
@@ -718,11 +722,12 @@ dependencies = [
 
 [[package]]
 name = "stardust-xr-fusion"
-version = "0.51.1"
-source = "git+https://github.com/StardustXR/core.git?branch=refactor%2Fstrongipc#68ea50297537707e8367c7d23ac7524355bd82a5"
+version = "0.53.0-rc.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "779073e169bdad18e90ad8a4b2d8a6a062352400811caf5d70b292128d7165da"
 dependencies = [
- "glam 0.30.10",
- "gluon",
+ "glam 0.33.12",
+ "gluon-ipc",
  "parking_lot",
  "rustix",
  "stardust-xr-protocol",
@@ -734,7 +739,7 @@ dependencies = [
 
 [[package]]
 name = "stardust-xr-gravity"
-version = "0.50.0"
+version = "0.53.0-rc.1"
 dependencies = [
  "clap",
  "glam 0.29.3",
@@ -746,13 +751,14 @@ dependencies = [
 
 [[package]]
 name = "stardust-xr-protocol"
-version = "0.51.1"
-source = "git+https://github.com/StardustXR/core.git?branch=refactor%2Fstrongipc#68ea50297537707e8367c7d23ac7524355bd82a5"
+version = "0.53.0-rc.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "11e3d92629921194c6226779e48bad2c47a5cd7822e48229f545a3e371ca3d22"
 dependencies = [
  "fnv",
- "glam 0.29.3",
- "gluon",
- "gluon-codegen",
+ "glam 0.33.12",
+ "gluon-ipc",
+ "gluon-ipc-codegen",
  "mint",
  "prettyplease",
  "rustix",
@@ -767,7 +773,8 @@ dependencies = [
 [[package]]
 name = "strong-ipc"
 version = "0.1.0"
-source = "git+https://github.com/technobaboo/strong-ipc#4dddd5ede29f02352bc101645c55708862b1d9f4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "df327b218ac884d02e54e500faaa1ecfd0b4678560874f70de801903c2f2f595"
 dependencies = [
  "dashmap",
  "rustix",
